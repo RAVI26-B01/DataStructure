@@ -13,6 +13,7 @@ public class SinglyLinkedList {
 			System.out.println("Press 4 to Delete Rare");
 			System.out.println("Press 5 to Insert At Index");
 			System.out.println("Press 6 to Delete At Index");
+			System.out.println("Press 9 to Reverse");
 			System.out.println("Press 10 to find middle element in single pass");
 			System.out.println("Press 8 to Display");
 			
@@ -24,6 +25,7 @@ public class SinglyLinkedList {
 			case 4:Delete_rear();break;
 			case 5:Insert_at_index();break;
 			case 6:Delete_at_index();break;
+			case 9:Reverse_a_List();break;
 			case 10:FindMiddleNodeInSinglePass();break;
 			case 8:display();break;
 			
@@ -34,6 +36,30 @@ public class SinglyLinkedList {
 		}
 	}
 	
+
+	private static void Reverse_a_List() {
+		if(head==null) {
+			System.err.println("Reverse Not Possible");
+		}
+		else if(head.next==null) {
+			System.err.println("Only one elemnt is present No need to reverse");
+		}
+		else{
+			Node x=head;
+			Node y=head.next;
+			Node z=head.next.next;
+			while(y!=null){
+				y.next=x;
+				x=y;
+				y=z;
+				if(z!=null)
+					z=z.next;
+			}
+			head.next=null;
+			head=x;
+		}
+	}
+
 
 	private static void FindMiddleNodeInSinglePass() {
 		Node current =null;
