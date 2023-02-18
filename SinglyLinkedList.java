@@ -13,9 +13,11 @@ public class SinglyLinkedList {
 			System.out.println("Press 4 to Delete Rare");
 			System.out.println("Press 5 to Insert At Index");
 			System.out.println("Press 6 to Delete At Index");
+			System.out.println("Press 7 to Delete Duplicates");
+			System.out.println("Press 8 to Display");
 			System.out.println("Press 9 to Reverse");
 			System.out.println("Press 10 to find middle element in single pass");
-			System.out.println("Press 8 to Display");
+			
 			
 			int key=scan.nextInt();  
 			switch (key) {
@@ -25,17 +27,47 @@ public class SinglyLinkedList {
 			case 4:Delete_rear();break;
 			case 5:Insert_at_index();break;
 			case 6:Delete_at_index();break;
+			case 7:Delete_Duplicates();break;
+			case 8:display();break;
 			case 9:Reverse_a_List();break;
 			case 10:FindMiddleNodeInSinglePass();break;
-			case 8:display();break;
 			
-
 			default:System.exit(0);
 				break;
 			} 
 		}
 	}
 	
+
+	private static void Delete_Duplicates() {
+		if(head==null) {
+			System.err.println("Reverse Not Possible");
+		}
+		else if(head.next==null) {
+			System.err.println("Only one elemnt is present can't campare and delete");
+		}
+		else{
+			Node ptr1=head;
+			Node ptr2=null;
+			
+			while(ptr1!=null && ptr1.next!=null){
+				ptr2=ptr1;
+				
+				while(ptr2.next!=null){
+					if(ptr1.data == ptr2.next.data){
+						ptr2.next=ptr2.next.next;
+					}else{
+						ptr2=ptr2.next;
+					}
+				}
+				ptr1=ptr1.next;
+			}
+			
+			System.out.println("Duplicates removed");
+		}
+		
+	}
+
 
 	private static void Reverse_a_List() {
 		if(head==null) {
