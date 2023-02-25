@@ -76,7 +76,7 @@ public class ConcateTwoListAndSort {
         node current = head1;
         node temp = head1;
 
-        // Compares the elements
+        // Compares the elements(bubble sort)
         // If node->next->data is less than node->data
         // then we will swap the data.
         while (current.next != null) {
